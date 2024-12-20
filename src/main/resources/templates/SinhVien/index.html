@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách Sinh Viên</title>
+</head>
+<body>
+<h1>Danh sách Sinh Viên</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>mail</th>
+        <th>DoB</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="sinhvien : ${sinhvienList}">
+        <td th:text="${sinhvien.id}"></td>
+        <td th:text="${sinhvien.name}"></td>
+        <td th:text="${sinhvien.mail}"></td>
+        <td th:text="${sinhvien.dob}"></td>
+        <td>
+            <a th:href="@{'/sinhvien/delete/' + ${sinhvien.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a href="/sinhvien/add">Add Sinh Viên</a>
+</body>
+</html>
